@@ -72,11 +72,15 @@
          </div>
            </div>
            
-           <div class="form-group">
-          <label for="type">User type</label>
-          <input type="text" name="type" class="form-control">
+               
+                  <div class="form-group">
+          <label for="type">I'm here as</label>          
+              <select name="type">
+                <option value="Artist">an Artist</option>
+                <option value="Art Dealer">an Art Dealer</option>
+                <option value="Buyer">a Connoisseur</option>
+              </select>
          </div>
-           
              <div class="form-group">
                 <input type="submit" name="publish" class="btn btn-info btn-md" value="submit">
              </div>

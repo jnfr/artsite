@@ -37,7 +37,7 @@ function log_in() {
 } else {
             
             $_SESSION['username'] = $username;
-            include(TEMPLATE_FRONT . DS . "sideuseraccount.php");
+             redirect("admin");
             echo "HI YOU LOGGED IN " . $username;
         }
     }
