@@ -1,18 +1,18 @@
 
 <li>
-<a href="#"> Profile</a>
+<a href="index.php"> Profile</a>
 </li>
 
 <li>
-<a href="#"> Inbox</a>
+<a href="index.php?transactions"> Transactions</a>
 </li>
 
 <li>
-<a href="#"> Settings</a>
+<a href="index.php?search"> Search/Explore</a>
 </li>
 
 <li class="divider"></li>
 
 <li>
-<a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+<a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>
