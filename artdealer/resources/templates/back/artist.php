@@ -1,0 +1,1 @@
+<h1>this is the artist's page</h1>
