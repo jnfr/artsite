@@ -25,6 +25,7 @@ if(!isset($_SESSION['username'])) {
         
         <?php 
         
+              
         if(($_SERVER['REQUEST_URI'] == "/artdealer/public/admin/") || ($_SERVER['REQUEST_URI'] == "/artdealer/public/admin/index.php")) {
             
             include(TEMPLATE_BACK . DS . "backcontent.php");
