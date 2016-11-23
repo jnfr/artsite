@@ -40,12 +40,12 @@ echo $userinfo;
                        
                            if($row['type'] == "artist") {
                        
-                       include(TEMPLATE_BACK . DS . "artist.php");
+                       include(TEMPLATE_BACK . DS . "Artist.php");
                                
                        } 
                            
                            
-                           elseif ($row['type'] == "promoter"){ 
+                           elseif ($row['type'] == "Art Dealer"){ 
                               
                                include(TEMPLATE_BACK . DS . "promoter.php");
                        } else {
