@@ -92,7 +92,7 @@ function add_user() {
 }
 
  
-function get_painting(){
+function get_paintings_artist_page(){
         
 $query = query("SELECT * FROM users WHERE user_number = " . escape_string($_GET['id']) . " ");
 
@@ -159,31 +159,97 @@ echo $artist;
 
 }
 
-/* function show_promoter_thumbnails(){
+                        
+function show_arts(){
+
+$query = query("SELECT * FROM paintings ORDER BY rand() LIMIT 20");
+
+$x = 1;
+
+while($row = mysqli_fetch_array($query)){
+
+$display = <<<DELIMETER
+
+<div class="col-md-3 portfolio-item">
+<a href="painting.php?id={$row['painting_number']}">
+<img class="img-responsive" src="{$row['painting_image']}" alt="">
+</a>
+</div>
+
+DELIMETER;
+
+echo $display;
+if($x % 4 === 0) echo "</div><div class='row'>";
+$x++;
+
+}}
+
+                
+function add_artist_info(){
+
+$query = query("SELECT * FROM paintings WHERE painting_number = " . escape_string($_GET['id']) . " ");
+
+
+while($row= mysqli_fetch_array($query)){
+ $artist_name = $row['artist_username']; 
     
+ $newquery = query("SELECT * FROM users WHERE username = '{$artist_name}'");
+ while($row = mysqli_fetch_array($newquery)){
+
+$shownow = <<<DELIMETER
+
+<div class="col-md-7">
+<a href="#">
+<h4>Artist:{$row['username']}</h4>
+<img class="img-responsive" src="{$row['profile_pic']}" alt="image of {$row['username']}" width=50px>
+</a>
+</div>
+
+DELIMETER;
+        
+    }
     
+echo $shownow;
+
+}}
+
+function painting_page(){
     
+$query = query("SELECT * FROM paintings WHERE painting_number = " . escape_string($_GET['id']) . " ");
     
-     <!-- Projects Row -->
+while($row = mysqli_fetch_array($query)){
+    
+$painting = <<<DELIMETER
+  <!-- Portfolio Item Row -->
         <div class="row">
-            <div class="col-md-2 portfolio-item">
-                <a href="http://localhost/artdealer/public/promoter.php?id={$row['user_number']}">
-                    <img class="img-responsive img-circle" src="{$row['profile-pic']}" alt="profile pic of art promoter">
-                    <h4>{$row['username']}</h4>
-                </a>
+
+            <div class="col-md-6">
+                <img class="img-responsive" src="{$row['painting_image']}" alt="image of {$row['painting_title']}">
             </div>
-            <div class="col-md-2 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                </a>
+
+            <div class="col-md-6">
+                <h3>{$row['painting_title']}</h3>
+                <p>{$row['description']}</p>
+                <h3>Details</h3>
+                <ul>
+                    <li>{$row['medium']}</li>
+                    <li>{$row['category']}</li>
+                    <li>{$row['size']}</li>
+                    <li>{$row['date_added']}</li>
+                </ul>
             </div>
-       
+
         </div>
         <!-- /.row -->
-    
-    
-    
-} */
 
+
+
+
+DELIMETER;
+   
+echo $painting;
+    
+}}
+                
 
 ?>

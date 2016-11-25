@@ -29,7 +29,7 @@
         <!-- Content Row -->
   <!-- Project One -->
     
-    <?php get_painting(); ?>
+    <?php get_paintings_artist_page(); ?>
        
         <!-- /.row -->
 
