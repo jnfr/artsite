@@ -16,6 +16,8 @@
 
         <!-- Page Content -->
         
+       
+        
         <?php include(TEMPLATE_FRONT . DS . "frontcontent.php"); ?>
         
        

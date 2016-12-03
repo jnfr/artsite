@@ -103,6 +103,7 @@ $username = $row['username'];
 }
     
 $query = query("SELECT * FROM paintings WHERE artist_username = '{$username}' ");
+    
 while($row = mysqli_fetch_array($query)){
     
 $painting_info = <<<DELIMETER
@@ -154,8 +155,9 @@ $artist = <<<DELIMETER
 
 </div>
 DELIMETER;
+    echo $artist; 
 }
-echo $artist;   
+  
 
 }
 
@@ -313,6 +315,60 @@ echo $show_choices;
 }
    
 }}
+
+function see_random_artist(){
+    
+$type = "Artist";
+    
+    $query = query("SELECT * FROM users  WHERE type = '{$type}' ORDER BY rand() LIMIT 1");
+    
+    while($row= mysqli_fetch_array($query)){
+        
+$add_random = <<<DELIMETER
+
+<a href = "http://localhost/artdealer/public/artist.php?id={$row['user_number']}"><h2>Click to see random artist</h2></a>
+
+DELIMETER;
+        
+    echo $add_random;
+    }  
+}
+
+function see_random_painting(){
+
+    
+    $query = query("SELECT * FROM paintings ORDER BY rand() LIMIT 1");
+    
+    while($row= mysqli_fetch_array($query)){
+        
+$add_random = <<<DELIMETER
+
+<a href = "http://localhost/artdealer/public/painting.php?id={$row['painting_number']}"><h2>Click to see random painting</h2></a>
+
+DELIMETER;
+        
+    echo $add_random;
+    }  
+}
+
+function see_random_promoter(){
+    
+$type = "Art Dealer";
+    
+    $query = query("SELECT * FROM users  WHERE type = '{$type}' ORDER BY rand() LIMIT 1");
+    
+    while($row= mysqli_fetch_array($query)){
+        
+$add_random = <<<DELIMETER
+
+<a href = "http://localhost/artdealer/public/promoter.php?id={$row['user_number']}"><h2>Click to see random art promoter</h2></a>
+
+DELIMETER;
+        
+    echo $add_random;
+    }  
+}
+
                 
 
 ?>
