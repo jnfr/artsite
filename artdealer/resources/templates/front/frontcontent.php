@@ -9,6 +9,8 @@
                         
                                <!-- Projects Row -->
         <div class="row">
+             <?php see_random_artist(); see_random_painting(); see_random_promoter(); ?>
+            
                      
 <?php show_arts(); ?>
             
